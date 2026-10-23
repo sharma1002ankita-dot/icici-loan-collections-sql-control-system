@@ -7,6 +7,18 @@ project builds one SQLite-backed control system that answers, as of a fixed
 review date: what was due, what was actually received, what's overdue, and
 what needs action — using SQL as the analysis layer, not spreadsheets.
 
+## Business Context
+Before writing any code, I worked through the business requirements for this
+project — a loan operations team that needed one trustworthy view of what's
+overdue, who's behind, and what collection action has or hasn't been taken,
+instead of piecing that together across separate payment logs, collection
+notes, and restructuring records. I translated that into three questions any
+operations or risk analyst actually asks day to day: which loans are overdue
+right now, how severe is each case, and what's already been done about it.
+Those three questions became the backbone of the design — seven tables
+connected by eight relationships, and thirteen SQL queries that answer them
+directly instead of requiring someone to manually cross-reference spreadsheets.
+
 ## ER Diagram
 ![ER Diagram](er-diagram.png)
 *(exported from the notebook's rendered Graphviz output)*
@@ -87,4 +99,4 @@ Open in Google Colab → Runtime → Run all. Setup (Section 1) builds the datas
 A live dashboard on top of the collection-priority report, and real API-key authentication on the internal API — this version intentionally skips both to stay focused on the SQL and data-modeling work.
 
 ---
-Full notebook: https://colab.research.google.com/drive/1XnO0ntDFSbc_71WFiSqDrfpf3ZjVa4cJ?usp=sharing
+Full notebook: https://colab.research.google.com/drive/1XnO0ntDFSbc_71WFiSqDrfpf3ZjVa4cJ
